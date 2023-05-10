@@ -9,7 +9,7 @@ The application allows users to register an account, log in, and send messages t
 [Netlify](https://dynamic-alfajores-84a356.netlify.app/)
 
 ### Installation
-1. Clone the repository: git clone https://github.com/Tailler1992/messenger.git
+1. Clone the repository: git clone https://github.com/Tailler1992/middle.messenger.praktikum.yandex.git
 2. Install the dependencies: npm install
 
 ### Usage
