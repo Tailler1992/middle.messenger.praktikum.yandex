@@ -6,7 +6,7 @@ The application allows users to register an account, log in, and send messages t
 
 ### Design and netlify
 [Layout in figma](https://www.figma.com/file/AKBwHk1lZMnL6ZsF0tjtu0/Chat_sprint1?type=design&node-id=0%3A1&t=crbwfKtlkXzUnefJ-1)
-[Netlify](https:///)
+[Netlify](https://dynamic-alfajores-84a356.netlify.app/)
 
 ### Installation
 1. Clone the repository: git clone https://github.com/Tailler1992/messenger.git
