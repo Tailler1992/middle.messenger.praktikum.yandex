@@ -1,0 +1,13 @@
+{{#> card-container/card-container className="login-card"}}
+    <form class="login-card__form" action="">
+        <h1 class="login-card__title">Вход</h1>
+        <div class="login-card__text-fields">
+            {{>text-field/text-field type="text" value="ivanivanov" placeholder="Логин или email"
+                    name="login" atr="required"}}
+            {{>text-field/text-field type="password" value="пароль123" placeholder="Пароль"
+                    name="password" atr="required"}}
+        </div>
+        {{> button/button className="login-card__button" text="Авторизоваться" name="enter"}}
+        <a class="login-card__link" href="../../pages/signUp/signUp.hbs">Нет аккаунта?</a>
+    </form>
+{{/card-container/card-container}}
