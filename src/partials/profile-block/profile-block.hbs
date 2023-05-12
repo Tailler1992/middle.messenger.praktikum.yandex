@@ -12,14 +12,16 @@
         <p>Поменять <br> аватар</p>
     </div>
     <h1 class="profile-block__user-name">{{name}}</h1>
-    {{> @partial-block }}
+    <form action="/" class="profile-block__form">
+        {{> @partial-block }}
 
-    {{#if btn}}
-        {{>button/button text="Сохранить" className="profile-block__btn"}}
-    {{else}}
-        <div class="profile-block__buttons">
-            <a href="../../pages/profileChangePassword/profileChangePassword.hbs">Изменить пароль</a>
-            <a href="../../pages/profileChangeData/profileChangeData.hbs">Изменить данные</a>
-        </div>
-    {{/if}}
+        {{#if btn}}
+            {{>button/button text="Сохранить" className="profile-block__btn"  type="submit" name="save"}}
+        {{else}}
+            <div class="profile-block__buttons">
+                <a href="../../pages/profileChangePassword/profileChangePassword.hbs">Изменить пароль</a>
+                <a href="../../pages/profileChangeData/profileChangeData.hbs">Изменить данные</a>
+            </div>
+        {{/if}}
+    </form>
 </div>

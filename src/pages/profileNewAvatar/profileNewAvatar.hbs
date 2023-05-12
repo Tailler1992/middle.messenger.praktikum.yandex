@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="styles.pcss">
 </head>
 <body>
-<div class="container">
+<main class="container">
     {{> navbar/navbar }}
     {{#> profile-block/profile-block name="Crown Jackson"}}
         {{>profile-info/profile-info}}
     {{/profile-block/profile-block}}
-</div>
-{{>popup-add-file/popup-add-file}}
+    {{>popup-add-file/popup-add-file}}
+</main>
+
 </body>
 </html>

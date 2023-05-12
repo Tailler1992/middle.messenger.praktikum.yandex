@@ -1,4 +1,4 @@
-<div class="content-footer">
+<form action="/" class="content-footer">
     <div class="content-footer__button-left">
         <button type="button" class="content-footer__button-clip">
             <svg width="10" height="20" viewBox="0 0 10 20" fill="none" stroke="#497174"
@@ -14,10 +14,10 @@
     </div>
     {{>text-field/text-field type="text" placeholder="Сообщение..." name="message"}}
 
-    {{#> button/button className="content-footer__button-send" text="Отправить" isIcon=true}}
+    {{#> button/button className="content-footer__button-send" text="Отправить" isIcon=true type="submit" name="send"}}
         <svg width="15" height="13" viewBox="0 0 15 13" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 14L2.5 7L0 0L13.209 5.96534C13.7352 6.20299 14.5 6.4226 14.5 7C14.5 7.5774 13.7352 7.79701
             13.209 8.03466L0 14Z"/>
         </svg>
     {{/button/button }}
-</div>
+</form>
