@@ -1,0 +1,21 @@
+{{#> card-container/card-container className="registration-card"}}
+    <form class="registration-card__form" action="">
+        <h1 class="registration-card__title">Регистрация</h1>
+        <div class="registration-card__text-fields">
+            {{>text-field/text-field type="email" value="pochta@yandex.ru" placeholder="Почта" name="email"
+                    atr="required"}}
+            {{>text-field/text-field type="text" value="ivanivanov" placeholder="Логин" name="login" atr="required"}}
+            {{>text-field/text-field type="text" value="Иван" placeholder="Имя" name="first_name" atr="required"}}
+            {{>text-field/text-field type="text" value="Иванов" placeholder="Фамилия" name="second_name"
+                    atr="required"}}
+            {{>text-field/text-field type="text" value="+7 (909) 967 30 30" placeholder="Телефон" name="phone"
+                    atr="required"}}
+            {{>text-field/text-field type="password" value="ivanivanov" placeholder="Пароль" name="password"
+                    atr="required"}}
+            {{>text-field/text-field type="password" value="ivanivanov" placeholder="Пароль (ещё раз)" name="password"
+                    atr="required"}}
+        </div>
+        {{>button/button className="registration-card__button" text="Зарегистрироваться" name="register" type="submit"}}
+        <a class="registration-card__link" href="../../pages/signIn/signIn.hbs">Войти</a>
+    </form>
+{{/card-container/card-container}}

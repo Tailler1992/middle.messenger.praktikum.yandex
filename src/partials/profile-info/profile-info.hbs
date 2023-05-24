@@ -1,0 +1,51 @@
+<div class="profile-info">
+    {{#if isPass}}
+        <div class="profile-info__line">
+            <p class="profile-info__named">Старый пароль</p>
+            {{>text-field/text-field type="password" value="1234567" placeholder="Старый пароль" variant=true
+                    name="oldPassword"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Новый пароль</p>
+            {{>text-field/text-field type="password" value="1234567" placeholder="Новый пароль" variant=true
+                    name="newPassword"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Повторите новый пароль</p>
+            {{>text-field/text-field type="password" value="1234567" placeholder="Новый пароль (ещё раз)" variant=true
+                    name="newPassword"}}
+        </div>
+    {{else}}
+        <div class="profile-info__line">
+            <p class="profile-info__named">Почта</p>
+            {{>text-field/text-field type="email" value="pochta@yandex.ru" placeholder="Новая почта" atr="disabled"
+                    variant=true name="email"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Логин</p>
+            {{>text-field/text-field type="text" value="ivanivanov" placeholder="Новый логин" atr="disabled"
+                    variant=true name="login"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Имя</p>
+            {{>text-field/text-field type="text" value="Иван" placeholder="Новое имя" atr="disabled" variant=true
+                    name="first_name"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Фамилия</p>
+            {{>text-field/text-field type="text" value="Иванов" placeholder="Новая фамилия" atr="disabled"
+                    variant=true name="second_name"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Имя в чате</p>
+            {{>text-field/text-field type="text" value="Иван" placeholder="Новое имя в чате" atr="disabled"
+                    variant=true name="display_name"}}
+        </div>
+        <div class="profile-info__line">
+            <p class="profile-info__named">Телефон</p>
+            {{>text-field/text-field type="phone" value="+7 (909) 967 30 30" placeholder="Новое телефон" atr="disabled"
+                    variant=true name="phone"}}
+        </div>
+    {{/if}}
+
+</div>

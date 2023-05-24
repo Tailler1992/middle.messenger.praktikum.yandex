@@ -1,0 +1,45 @@
+.chats {
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 15px;
+    padding: 20px 0;
+
+    border-bottom: 1px solid var(--container-border-color);
+  }
+
+  &__avatar {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 10px;
+
+    background-color: var(--avatar-color-bg);
+    border-radius: 50%;
+  }
+
+  &__full-name {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  &__search {
+    display: flex;
+    margin: 0 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--container-border-color);
+  }
+
+  &__title {
+    padding: 20px 15px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
