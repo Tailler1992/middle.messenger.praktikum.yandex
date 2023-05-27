@@ -1,0 +1,51 @@
+.navbar {
+  flex-shrink: 0;
+
+  margin-bottom: 20px;
+  padding: 10px;
+
+  background: var(--navbar-color-bg);
+  border-radius: 18px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.listItem {
+  cursor: pointer;
+  border-radius: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+  }
+
+  svg {
+    fill: var(--navbar-svg-color-fill);
+  }
+
+  &Active {
+    background: var(--navbar-selected-color-bg);
+
+    svg {
+      fill: var(--navbar-selected-svg-color-fill);
+    }
+  }
+
+  &Down {
+    margin-top: auto;
+  }
+
+  &:hover:not(&Active) {
+    background: var(--navbar-selected-color-bg-hover);
+  }
+}
+

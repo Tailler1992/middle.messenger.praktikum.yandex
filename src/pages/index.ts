@@ -1,4 +1,5 @@
 import renderDOM from "../core/renderDom";
+import {Chat} from "./chat";
 import {SignIn} from "./signIn";
 import {SignUp} from "./signUp";
 
@@ -8,5 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const signInPage = new SignIn();
   const signUpPage = new SignUp();
 
-  root.append(signUpPage.getContent()!);
+  const chatPage = new Chat();
+
+  root.append(chatPage.getContent()!);
 });
