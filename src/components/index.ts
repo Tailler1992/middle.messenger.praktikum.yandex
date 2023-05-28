@@ -6,3 +6,7 @@ export * from './registrationCard';
 export * from './navbar';
 export * from './chats';
 export * from './chatsCard';
+export * from './chatsContent';
+export * from './contentHeader';
+export * from './contentMessages';
+export * from './contentFooter';

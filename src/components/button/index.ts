@@ -10,6 +10,7 @@ interface ButtonProps {
   events?: {
     click: (evt: PointerEvent) => void;
   };
+  icon?: any;
 }
 
 export class Button extends Block {
@@ -21,7 +22,7 @@ export class Button extends Block {
     const template = `
       <button class="${s.button} {{className}}" type="{{type}}" name={{name}}>
           {{text}}
-          {{#if isIcon}} {{> @partial-block }} {{/if}}
+          {{{icon}}}
       </button>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
