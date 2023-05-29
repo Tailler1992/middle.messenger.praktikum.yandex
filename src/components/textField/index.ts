@@ -7,6 +7,7 @@ interface TextFieldProps {
   value: string;
   placeholder?: string;
   name: string;
+  variant?: boolean;
 }
 
 export class TextField extends Block {
@@ -15,9 +16,10 @@ export class TextField extends Block {
   }
 
   render() {
+    const className = this.props.variant ? `${s.textField} ${s.variant}` : s.textField;
     const template = `
       <input 
-        class="${s.textField} {{#if variant}}text-field-variant{{/if}}" 
+        class="${className}" 
         type="{{type}}" 
         value="{{value}}"
         placeholder="{{placeholder}}" 

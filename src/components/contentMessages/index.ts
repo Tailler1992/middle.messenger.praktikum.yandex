@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 import Block from "../../core/Block";
-import {ContentPost} from "../contentPost";
+import {ContentPost} from "../";
 import s from "./contentMessages.module.pcss";
 import photo from "../../assets/img/Photo.jpg";
 

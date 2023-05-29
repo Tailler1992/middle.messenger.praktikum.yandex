@@ -1,6 +1,6 @@
-import Handlebars, {log} from "handlebars";
+import Handlebars from "handlebars";
 import Block from "../../core/Block";
-import {Button, ContentHeader, TextField} from "../";
+import {Button, TextField} from "../";
 import s from "./contentFooter.module.pcss";
 import {arrowIco} from './arrow';
 
