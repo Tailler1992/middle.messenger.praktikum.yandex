@@ -1,34 +1,43 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import {Button, TextField} from "../";
+import {validateChatInput, validateForm} from "../../core/utils/validateForm";
+
 import s from "./contentFooter.module.pcss";
-import {arrowIco} from './arrow';
+import {arrowIco} from "./arrow";
 
 export class ContentFooter extends Block {
+  constructor() {
+    super();
+  }
+
   init() {
     this.children.inputMessage = new TextField({
       name: "message",
       placeholder: "Сообщение...",
       value: "",
-      type: "text"
+      type: "text",
+      events: {
+        blur: (evt) => {
+          validateChatInput(evt);
+        },
+      },
     });
     this.children.button = new Button({
       type: "submit",
       name: "send",
       className: `${s.buttonSend}`,
       events: {
-        click: (evt: PointerEvent) => {
-          evt.preventDefault();
-          console.log("clicked");
+        click: (evt) => {
+          validateForm(evt, `.${s.contentFooter}`);
         },
       },
       text: "Отправить",
-      icon: arrowIco
-    })
+      icon: arrowIco,
+    });
   }
 
   render() {
-
     const template = `
       <form action="/" class="${s.contentFooter}">
           <div class="${s.buttonLeft}">
@@ -48,7 +57,6 @@ export class ContentFooter extends Block {
       </form>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

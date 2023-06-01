@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./contentHeader.module.pcss";
 
 interface ContentHeaderProps {
@@ -32,7 +32,6 @@ export class ContentHeader extends Block {
       </div>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

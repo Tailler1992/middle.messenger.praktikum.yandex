@@ -1,11 +1,12 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import {Button} from "../";
+import {validateForm} from "../../core/utils/validateForm";
 import s from "./profileBlock.module.pcss";
 
 interface ProfileBlockProps {
   name?: string;
-  children: any;
+  children: Block;
   btn?: boolean;
 }
 
@@ -20,6 +21,11 @@ export class ProfileBlock extends Block {
       name: "save",
       type: "submit",
       className: `${s.btn}`,
+      events: {
+        click: (evt) => {
+          validateForm(evt, `.${s.form}`);
+        },
+      },
     });
   }
 
@@ -39,7 +45,8 @@ export class ProfileBlock extends Block {
         </div>
         <h1 class="${s.userName}">{{name}}</h1>
         <form action="/" class="${s.form}">
-            <div class="${s.list}">{{{children}}}</div>          
+            <div class="${s.list}">{{{children}}}</div>
+            <div class=${s.errorBlock} id="errorBlock"></div>
             {{#if btn}}
               {{{button}}}
             {{else}}
@@ -52,7 +59,6 @@ export class ProfileBlock extends Block {
       </div>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

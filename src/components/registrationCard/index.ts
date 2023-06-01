@@ -1,24 +1,121 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import {Button, TextField} from "../";
+import {validate, validateForm} from "../../core/utils/validateForm";
+import sInput from "../textField/textField.module.pcss";
 import s from "./registrationCard.module.pcss";
 
 export class RegistrationCard extends Block {
+  constructor() {
+    super();
+  }
+
   init() {
     this.children.inputEmail =
-        new TextField({type: "email", value: "pochta@yandex.ru", name: "email", placeholder: "Почта"});
+        new TextField({
+          type: "email",
+          value: "",
+          name: "email",
+          placeholder: "Почта",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputEmail);
+            },
+          },
+        });
     this.children.inputLogin =
-        new TextField({type: "text", value: "ivanivanov", name: "login", placeholder: "Логин"});
+        new TextField({
+          type: "text",
+          value: "",
+          name: "login",
+          placeholder: "Логин",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputLogin);
+            },
+          },
+        });
     this.children.inputFirstName =
-        new TextField({type: "text", value: "Иван", name: "first_name", placeholder: "Имя"});
+        new TextField({
+          type: "text",
+          value: "",
+          name: "first_name",
+          placeholder: "Имя",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputFirstName);
+            },
+          },
+        });
     this.children.inputSecondName =
-        new TextField({type: "text", value: "Иванов", name: "second_name", placeholder: "Фамилия"});
+        new TextField({
+          type: "text",
+          value: "",
+          name: "second_name",
+          placeholder: "Фамилия",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputSecondName);
+            },
+          },
+        });
     this.children.inputPhone =
-        new TextField({type: "text", value: "+7 (909) 967 30 30", name: "phone", placeholder: "Телефон"});
+        new TextField({
+          type: "text",
+          value: "",
+          name: "phone",
+          placeholder: "Телефон",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputPhone);
+            },
+          },
+        });
     this.children.inputPassword =
-        new TextField({type: "password", value: "пароль123", name: "password", placeholder: "Пароль"});
+        new TextField({
+          type: "password",
+          value: "",
+          name: "password",
+          placeholder: "Пароль",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputPassword);
+            },
+          },
+        });
     this.children.inputRepeatPassword =
-        new TextField({type: "password", value: "пароль123", name: "password", placeholder: "Пароль (ещё раз)"});
+        new TextField({
+          type: "password",
+          value: "",
+          name: "repeat_password",
+          placeholder: "Пароль (ещё раз)",
+          events: {
+            focus: (evt) => {
+              (evt.target as HTMLElement).classList.remove(sInput.error);
+            },
+            blur: (evt) => {
+              validate(evt, this.children.inputPassword);
+            },
+          },
+        });
 
     this.children.button = new Button({
       text: "Зарегистрироваться",
@@ -28,7 +125,7 @@ export class RegistrationCard extends Block {
       events: {
         click: (evt: PointerEvent) => {
           evt.preventDefault();
-          console.log("clicked");
+          validateForm(evt, `.${s.form}`);
         },
       },
     });
@@ -47,12 +144,12 @@ export class RegistrationCard extends Block {
               {{{inputPassword}}}
               {{{inputRepeatPassword}}}
           </div>
+          <div class=${s.errorBlock} id="errorBlock"></div>  
           {{{button}}}
           <a class="${s.link}" href="/">Нет аккаунта?</a>
       </form>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

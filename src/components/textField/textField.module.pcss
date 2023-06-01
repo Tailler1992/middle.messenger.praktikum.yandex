@@ -1,9 +1,7 @@
 .textField {
   width: 100%;
   padding: 14px 16px 13px;
-
   font-size: 13px;
-
   border: 1px solid var(--text-field-color-border);
   border-radius: 5px;
 
@@ -21,20 +19,21 @@
 }
 
 .variant {
-  cursor: text;
-
   width: 100%;
   max-width: 200px;
   padding: 5px 0;
-
   font-weight: 400;
   color: var(--text-color-secondary);
   text-align: end;
-
+  cursor: text;
   background: #FFF;
   border: none;
 
   &::placeholder {
     color: var(--text-field-color-placeholder-hover);
   }
+}
+
+.error {
+  border: 1px solid #FF2F2F;
 }

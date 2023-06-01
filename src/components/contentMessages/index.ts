@@ -1,11 +1,13 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import {ContentPost} from "../";
 import s from "./contentMessages.module.pcss";
 import photo from "../../assets/img/Photo.jpg";
 
 export class ContentMessages extends Block {
-
+  constructor() {
+    super();
+  }
   init() {
     this.children.post = new ContentPost({
       timePost: "11:44",
@@ -38,7 +40,6 @@ export class ContentMessages extends Block {
       </div>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

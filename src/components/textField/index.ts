@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./textField.module.pcss";
 
 interface TextFieldProps {
@@ -8,6 +8,12 @@ interface TextFieldProps {
   placeholder?: string;
   name: string;
   variant?: boolean;
+  events?: {
+    focus?: (evt: Event) => void;
+    blur?: (evt: Event) => void;
+  };
+  className?: string;
+  disabled?: boolean;
 }
 
 export class TextField extends Block {
@@ -17,6 +23,7 @@ export class TextField extends Block {
 
   render() {
     const className = this.props.variant ? `${s.textField} ${s.variant}` : s.textField;
+    const disabled = this.props.disabled ? "disabled" : "";
     const template = `
       <input 
         class="${className}" 
@@ -24,10 +31,10 @@ export class TextField extends Block {
         value="{{value}}"
         placeholder="{{placeholder}}" 
         name={{name}} 
-        {{atr}}>`;
+        autocomplete="off"
+        ${disabled}>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

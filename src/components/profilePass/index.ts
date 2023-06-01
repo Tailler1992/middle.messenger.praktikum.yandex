@@ -1,30 +1,59 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import {TextField} from "../";
+import {validate} from "../../core/utils/validateForm";
+import sInput from "../textField/textField.module.pcss";
 
 export class ProfilePass extends Block {
+  constructor() {
+    super();
+  }
 
   init() {
     this.children.inputOldPassword = new TextField({
       type: "password",
       value: "1234567",
       placeholder: "Старый пароль",
-      name: "oldPassword",
-      variant: true
+      name: "old_password",
+      variant: true,
+      events: {
+        focus: (evt) => {
+          (evt.target as HTMLElement).classList.remove(sInput.error);
+        },
+        blur: (evt) => {
+          validate(evt, this.children.inputOldPassword);
+        },
+      },
     });
     this.children.inputNewPassword = new TextField({
       type: "password",
       value: "1234567",
       placeholder: "Новый пароль",
-      name: "newPassword",
-      variant: true
+      name: "password",
+      variant: true,
+      events: {
+        focus: (evt) => {
+          (evt.target as HTMLElement).classList.remove(sInput.error);
+        },
+        blur: (evt) => {
+          validate(evt, this.children.inputNewPassword);
+        },
+      },
     });
     this.children.inputRepeatNewPassword = new TextField({
       type: "password",
       value: "1234567",
       placeholder: "Новый пароль (ещё раз)",
-      name: "newPassword",
-      variant: true
+      name: "repeat_password",
+      variant: true,
+      events: {
+        focus: (evt) => {
+          (evt.target as HTMLElement).classList.remove(sInput.error);
+        },
+        blur: (evt) => {
+          validate(evt, this.children.inputRepeatNewPassword);
+        },
+      },
     });
   }
 
@@ -37,7 +66,6 @@ export class ProfilePass extends Block {
       </ul>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

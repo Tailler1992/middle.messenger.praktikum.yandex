@@ -15,4 +15,3 @@ export * from './profileData';
 export * from './profilePass';
 export * from './registrationCard';
 export * from './textField';
-

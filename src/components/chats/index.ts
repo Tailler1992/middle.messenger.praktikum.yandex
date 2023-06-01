@@ -1,16 +1,25 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
-import {LoginCard} from "../loginCard";
+import {Block} from "../../core/Block";
 import {TextField, ChatsCard} from "../";
+import {validateChatInput} from "../../core/utils/validateForm";
 import s from "./chats.module.pcss";
 
 export class Chats extends Block {
+  constructor() {
+    super();
+  }
+
   init() {
     this.children.inputSearch = new TextField({
       type: "text",
-      name: "",
+      name: "search",
       value: "",
       placeholder: "Поиск",
+      events: {
+        blur: (evt) => {
+          validateChatInput(evt);
+        },
+      },
     });
     this.children.chatsCard = new ChatsCard({
       name: "Андрей",
@@ -59,14 +68,11 @@ export class Chats extends Block {
           <div class="${s.user}">
               <div class="${s.avatar}"></div>
               <h1 class="${s.fullName}">Crown Jackson</h1>
-          </div>
-      
+          </div>      
           <div class="${s.search}">
               {{{inputSearch}}}
-          </div>
-      
-          <h2 class="${s.title}">Чаты</h2>
-      
+          </div>      
+          <h2 class="${s.title}">Чаты</h2>      
           <div>
               <ul>
                  {{{chatsCard}}}
@@ -81,7 +87,6 @@ export class Chats extends Block {
       </div>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

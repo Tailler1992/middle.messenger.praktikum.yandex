@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./contentPost.module.pcss";
 
 interface ContentPostProps {
@@ -8,6 +8,7 @@ interface ContentPostProps {
   imgPath?: string;
   isMyPost?: boolean;
 }
+
 export class ContentPost extends Block {
   constructor(props: ContentPostProps) {
     super(props);
@@ -29,12 +30,6 @@ export class ContentPost extends Block {
 `;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }
-
-
-
-
-

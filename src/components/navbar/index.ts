@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./navbar.module.pcss";
 import {icon, icon2, icon3, icon4, icon5, icon6, icon7} from "./icons";
 
@@ -33,7 +33,6 @@ export class NavBar extends Block {
       </nav>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

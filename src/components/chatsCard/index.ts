@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./chatsCard.module.pcss";
 
 interface ChatsCardProps {
@@ -14,6 +14,7 @@ export class ChatsCard extends Block {
   constructor(props: ChatsCardProps) {
     super(props);
   }
+
   render() {
     const className = this.props.selected ? `${s.chatsCard} ${s.chatsCardSelected}` : s.chatsCard;
 
@@ -36,11 +37,9 @@ export class ChatsCard extends Block {
                   </div>
               </div>
           </div>
-      </li>    
-`;
+      </li>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

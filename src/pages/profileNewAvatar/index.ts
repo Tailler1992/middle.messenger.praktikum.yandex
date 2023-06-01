@@ -1,15 +1,19 @@
 import Handlebars from "handlebars";
-import {CardContainer, LoginCard, NavBar, ProfileBlock, ProfileData} from "../../components";
+import {CardContainer, NavBar, ProfileBlock, ProfileData} from "../../components";
 import {PopupAddFile} from "../../components/popupAddFile";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./profileNewAvatar.module.pcss";
 
 export class ProfileNewAvatar extends Block {
+  constructor() {
+    super();
+  }
+
   init() {
     this.children.navbar = new NavBar();
     this.children.profileBlock = new ProfileBlock({
       name: "Crown Jackson",
-      children: new ProfileData(),
+      children: new ProfileData({}),
     });
     this.children.content = new CardContainer({
       content: new PopupAddFile(),
@@ -27,7 +31,6 @@ export class ProfileNewAvatar extends Block {
     </main>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

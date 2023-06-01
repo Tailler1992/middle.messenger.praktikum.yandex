@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./button.module.pcss";
 
 interface ButtonProps {
@@ -10,7 +10,7 @@ interface ButtonProps {
   events?: {
     click: (evt: PointerEvent) => void;
   };
-  icon?: any;
+  icon?: string;
 }
 
 export class Button extends Block {
@@ -26,7 +26,6 @@ export class Button extends Block {
       </button>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

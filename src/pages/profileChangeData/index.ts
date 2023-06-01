@@ -1,14 +1,18 @@
 import Handlebars from "handlebars";
 import {NavBar, ProfileBlock, ProfileData} from "../../components";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./profileChange.module.pcss";
 
 export class ProfileChangeData extends Block {
+  constructor() {
+    super();
+  }
+
   init() {
     this.children.navbar = new NavBar();
     this.children.profileBlock = new ProfileBlock({
-      children: new ProfileData(),
-      btn: true
+      children: new ProfileData({}),
+      btn: true,
     });
   }
 
@@ -20,7 +24,6 @@ export class ProfileChangeData extends Block {
     </main>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

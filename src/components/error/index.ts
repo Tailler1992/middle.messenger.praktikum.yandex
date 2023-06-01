@@ -1,6 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
-import {ContentHeader, ContentFooter, ContentMessages} from "../";
+import {Block} from "../../core/Block";
 import s from "./error.module.pcss";
 
 interface ErrorProps {
@@ -22,7 +21,6 @@ export class Error extends Block {
       </div>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

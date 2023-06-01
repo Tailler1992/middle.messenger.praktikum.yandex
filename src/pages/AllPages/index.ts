@@ -1,15 +1,16 @@
 import Handlebars from "handlebars";
-import {CardContainer, LoginCard} from "../../components";
-import Block from "../../core/Block";
-import s from "./allPages.module.pcss"
+import {Block} from "../../core/Block";
+import s from "./allPages.module.pcss";
 
 type link = {
   link: string;
   label: string;
 };
+
 interface AllPagesProps {
   pages: link[];
 }
+
 export class AllPages extends Block {
   constructor(props: AllPagesProps) {
     super(props);
@@ -26,7 +27,6 @@ export class AllPages extends Block {
       </nav>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }

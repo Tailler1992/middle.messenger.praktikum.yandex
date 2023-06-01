@@ -1,6 +1,6 @@
-import Block from "./Block";
+import {Block} from "./Block";
 
-export default function renderDOM(block: Block, selector: string = "#root") {
+export function renderDOM(block: Block, selector: string = "#root"): void {
   const root = document.querySelector(selector);
 
   root!.innerHTML = "";

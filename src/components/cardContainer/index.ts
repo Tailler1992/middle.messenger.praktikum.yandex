@@ -1,9 +1,9 @@
 import Handlebars from "handlebars";
-import Block from "../../core/Block";
+import {Block} from "../../core/Block";
 import s from "./cardContainer.module.pcss";
 
 interface CardContainerProps {
-  content?: any;
+  content?: Block;
 }
 
 export class CardContainer extends Block {
@@ -18,7 +18,6 @@ export class CardContainer extends Block {
       </div>`;
 
     const hbTemplateDelegate = Handlebars.compile(template);
-
     return this.compile(hbTemplateDelegate, this.props);
   }
 }
