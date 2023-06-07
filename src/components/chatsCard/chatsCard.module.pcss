@@ -1,0 +1,87 @@
+.chatsCard {
+  cursor: pointer;
+  border-radius: 8px;
+
+  &:hover:not(&Selected) {
+    background: var(--chats-card-selected-color-bg-hover);
+  }
+
+  &:not(:first-child, &Selected) > .container {
+    border-top: 1px solid var(--container-border-color);
+  }
+
+  &Selected {
+    background: var(--chats-card-selected-color-bg);
+  }
+
+  &Selected + & > .container{
+    border-top: none !important;
+  }
+}
+
+.container {
+  display: flex;
+  height: 80px;
+  padding: 15px 0;
+  margin: 0 15px;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  background: var(--avatar-color-bg);
+  border-radius: 50%;
+}
+
+.contentBlock {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.info {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3px 0;
+}
+
+.date {
+  font-size: 9px;
+  line-height: 11px;
+  color: var(--text-color-secondary);
+}
+
+.preview {
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+}
+
+.message {
+  max-width: 175px;
+  font-size: 12px;
+  line-height: 13px;
+  color: var(--text-color-secondary);
+}
+
+.mark {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--mark-color-text);
+  background: var(--mark-color-bg);
+  border-radius: 5px;
+}

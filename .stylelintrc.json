@@ -1,10 +1,11 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-clean-order"
+    "stylelint-config-recess-order"
   ],
   "rules": {
     "color-hex-case": "upper",
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "no-descending-specificity": null
   }
 }

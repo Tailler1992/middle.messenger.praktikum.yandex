@@ -1,0 +1,36 @@
+.contentFooter {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-top: 1px solid var(--container-border-color);
+}
+
+.buttonLeft {
+  position: relative;
+  padding-right: 10px;
+  border-right: 1px solid var(--container-border-color);
+}
+
+.buttonClip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 5px;
+
+  &:hover {
+    background: var(--button-secondary-color-bg);
+  }
+}
+
+.buttonSend {
+  display: flex;
+  flex-shrink: 0;
+
+  svg {
+    margin-left: 8px;
+  }
+}
