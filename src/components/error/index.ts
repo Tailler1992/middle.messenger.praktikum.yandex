@@ -1,5 +1,6 @@
 import Handlebars from "handlebars";
 import {Block} from "../../core/Block";
+import {Link} from "../link";
 import s from "./error.module.pcss";
 
 interface ErrorProps {
@@ -12,15 +13,21 @@ export class Error extends Block {
     super(props);
   }
 
+  protected init() {
+    this.children.link = new Link({
+      label: "Назад к чатам",
+      href: "/chat",
+    });
+  }
+
   render() {
     const template = `
       <div class="${s.error}">
-         <h1>{{number}}</h1>
-          <p class="${s.message}">{{message}}</p>
-          <a href="/">Назад к чатам</a>
+         <h1>{{ number }}</h1>
+          <p class="${s.message}">{{ message }}</p>
+          {{{ link }}}
       </div>`;
 
-    const hbTemplateDelegate = Handlebars.compile(template);
-    return this.compile(hbTemplateDelegate, this.props);
+    return this.compile(Handlebars.compile(template), this.props);
   }
 }
