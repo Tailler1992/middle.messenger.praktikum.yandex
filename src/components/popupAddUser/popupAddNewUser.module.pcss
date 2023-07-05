@@ -1,0 +1,76 @@
+.base {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #0006;
+}
+
+.visible {
+  display: flex;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 340px;
+  padding: 25px;
+  background: var(--card-color-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-box-shadow);
+
+  h3 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.button {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
+.searchTitle {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 11px;
+  margin-bottom: 20px;
+}
+
+.btnClose{
+  align-self: center;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 11px;
+  color: inherit;
+  background: transparent;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+    background: transparent;
+  }
+}

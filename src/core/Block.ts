@@ -6,35 +6,26 @@ export class Block<T extends Record<string, any> = any> {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
     FLOW_CDU: "flow:component-did-update",
+    FLOW_CWU: "flow:component-will-unmount",
     FLOW_RENDER: "flow:render",
   };
+
   private id = nanoid(6);
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
-  protected props: T;
-  protected state: T | any;
   public children: Record<string, any>;
+  protected props: T;
   protected refs: { [key: string]: HTMLElement } = {};
-  // @ts-ignore
-  private _meta: { props: any };
-
 
   constructor(propsWithChildren: T | any = {}) {
     const eventBus = new EventBus();
 
     const {props, children} = this._getChildrenAndProps(propsWithChildren);
 
-    this._meta = {
-      props,
-    };
-
     this.children = children;
-    this.state = {};
-    this.props = this._makePropsProxy(props);
-    this.state = this._makePropsProxy(this.state);
+    this.props = this._makePropsProxy(props || ({} as T));
 
     this.eventBus = () => eventBus;
-
     this._registerEvents(eventBus);
 
     eventBus.emit(Block.EVENTS.INIT);
@@ -75,10 +66,22 @@ export class Block<T extends Record<string, any> = any> {
     });
   }
 
+  _checkInDom() {
+    const elementInDOM = document.body.contains(this._element);
+
+    if (elementInDOM) {
+      setTimeout(() => this._checkInDom(), 1000);
+      return;
+    }
+
+    this.eventBus().emit(Block.EVENTS.FLOW_CWU, this.props);
+  }
+
   private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+    eventBus.on(Block.EVENTS.FLOW_CWU, this._componentWillUnmount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
@@ -97,6 +100,7 @@ export class Block<T extends Record<string, any> = any> {
   }
 
   private _componentDidMount() {
+    this._checkInDom();
     this.componentDidMount();
   }
 
@@ -119,6 +123,14 @@ export class Block<T extends Record<string, any> = any> {
 
   protected componentDidUpdate(_oldProps: T, _newProps: T): boolean {
     return true;
+  }
+
+  private _componentWillUnmount() {
+    this.eventBus().destroy();
+    this.componentWillUnmount();
+  }
+
+  public componentWillUnmount() {
   }
 
   setProps = (nextProps: any) => {
@@ -189,6 +201,16 @@ export class Block<T extends Record<string, any> = any> {
   }
 
   public getContent(): HTMLElement {
+    if (this.element?.parentNode?.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+      setTimeout(() => {
+        if (
+            this.element?.parentNode?.nodeType !== Node.DOCUMENT_FRAGMENT_NODE
+        ) {
+          this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+        }
+      }, 100);
+    }
+
     return this.element!;
   }
 
@@ -215,13 +237,5 @@ export class Block<T extends Record<string, any> = any> {
 
   private _createDocumentElement(tagName: string): HTMLElement {
     return document.createElement(tagName);
-  }
-
-  public show(): void {
-    this.getContent()!.style.display = "block";
-  }
-
-  public hide(): void {
-    this.getContent()!.style.display = "none";
   }
 }

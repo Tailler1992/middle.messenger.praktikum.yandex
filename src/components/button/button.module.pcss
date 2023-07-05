@@ -1,4 +1,4 @@
-.button {
+.orange {
   padding: 16px 16px 15px;
   font-size: 13px;
   font-weight: 500;
@@ -10,5 +10,27 @@
 
   &:hover, &:focus {
     background: var(--button-primary-color-bg-hover);
+  }
+}
+
+.green {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  p {
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background: var(--bg-color);
   }
 }

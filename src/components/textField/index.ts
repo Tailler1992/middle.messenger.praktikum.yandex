@@ -4,16 +4,16 @@ import s from "./textField.module.pcss";
 
 interface TextFieldProps {
   type: string;
-  value: string;
+  value?: string;
   placeholder?: string;
   name: string;
   variant?: boolean;
   events?: {
     focus?: (evt: Event) => void;
     blur?: (evt: Event) => void;
+    change?: (evt: any) => void;
   };
   className?: string;
-  disabled?: boolean;
 }
 
 export class TextField extends Block {
@@ -23,18 +23,16 @@ export class TextField extends Block {
 
   render() {
     const className = this.props.variant ? `${s.textField} ${s.variant}` : s.textField;
-    const disabled = this.props.disabled ? "disabled" : "";
+
     const template = `
       <input 
         class="${className}" 
-        type="{{type}}" 
-        value="{{value}}"
-        placeholder="{{placeholder}}" 
-        name={{name}} 
-        autocomplete="off"
-        ${disabled}>`;
+        type="{{ type }}" 
+        value="{{ value }}"
+        placeholder="{{ placeholder }}" 
+        name={{ name }} 
+        autocomplete="off">`;
 
-    const hbTemplateDelegate = Handlebars.compile(template);
-    return this.compile(hbTemplateDelegate, this.props);
+    return this.compile(Handlebars.compile(template), this.props);
   }
 }

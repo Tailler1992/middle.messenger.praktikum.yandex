@@ -6,3 +6,85 @@
   padding: 20px 20px 0;
   background: var(--bg-color);
 }
+
+.profileBlock {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: var(--card-box-shadow);
+}
+
+.avatarImg {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 25px;
+  text-align: center;
+  background: var(--avatar-color-bg);
+  border-radius: 50%;
+}
+
+.userName {
+  margin-bottom: 45px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.list {
+  width: 100%;
+  max-width: 510px;
+  margin-bottom: 60px;
+  text-align: center;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--container-border-color);
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 13px;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 510px;
+
+  a {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

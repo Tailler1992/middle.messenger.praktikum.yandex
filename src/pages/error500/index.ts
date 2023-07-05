@@ -21,7 +21,6 @@ export class Error500 extends Block {
         {{{error}}}
     </main>`;
 
-    const hbTemplateDelegate = Handlebars.compile(template);
-    return this.compile(hbTemplateDelegate, this.props);
+    return this.compile(Handlebars.compile(template), this.props);
   }
 }

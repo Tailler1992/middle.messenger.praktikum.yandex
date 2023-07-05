@@ -3,10 +3,11 @@ import {Block} from "../../core/Block";
 import s from "./button.module.pcss";
 
 interface ButtonProps {
-  text: string;
+  text?: string;
   type: string;
   name: string;
   className?: string;
+  stylePopup?: boolean;
   events?: {
     click: (evt: PointerEvent) => void;
   };
@@ -20,12 +21,16 @@ export class Button extends Block {
 
   render() {
     const template = `
-      <button class="${s.button} {{className}}" type="{{type}}" name={{name}}>
-          {{text}}
-          {{{icon}}}
-      </button>`;
+      {{#if stylePopup}}
+        <button class="${s.green} {{ className }}" type="{{ type }}" name={{ name }}>
+          <div class="${s.icon}">{{{ icon }}}</div> <p>{{ text }}</p>
+        </button>
+      {{else}}
+        <button class="${s.orange} {{ className }}" type="{{ type }}" name={{ name }}>
+          {{ text }} {{{ icon }}}
+        </button>      
+      {{/if}}`;
 
-    const hbTemplateDelegate = Handlebars.compile(template);
-    return this.compile(hbTemplateDelegate, this.props);
+    return this.compile(Handlebars.compile(template), this.props);
   }
 }

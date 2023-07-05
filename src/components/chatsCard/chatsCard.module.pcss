@@ -6,7 +6,7 @@
     background: var(--chats-card-selected-color-bg-hover);
   }
 
-  &:not(:first-child, &Selected) > .container {
+  &:not(:first-child) > .container {
     border-top: 1px solid var(--container-border-color);
   }
 
@@ -15,7 +15,8 @@
   }
 
   &Selected + & > .container{
-    border-top: none !important;
+    border-top: 1px solid var(--bg-color) !important;
+    border-bottom: 1px solid transparent !important;
   }
 }
 
@@ -30,6 +31,12 @@
   width: 40px;
   height: 40px;
   background: var(--avatar-color-bg);
+  border-radius: 50%;
+}
+
+.imgLogo {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 

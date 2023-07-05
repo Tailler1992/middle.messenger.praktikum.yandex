@@ -1,4 +1,7 @@
 .chats {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 100%;
   max-width: 320px;
   height: 100%;
@@ -21,6 +24,12 @@
   border-radius: 50%;
 }
 
+.imgAva {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+}
+
 .fullName {
   font-size: 24px;
   font-weight: 500;
@@ -35,8 +44,31 @@
 }
 
 .title {
-  padding: 20px 15px 10px;
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
+}
+
+.cards {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+
+  ul{
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.newChat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 15px;
+
+  button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
 }
