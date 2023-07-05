@@ -6,10 +6,10 @@ import {getUserInfo} from "./services/Auth";
 document.addEventListener("DOMContentLoaded", async () => {
   Router.use("/", SignIn);
   Router.use("/sign-up", SignUp);
-  Router.use("/profile", Profile);
-  Router.use("/profile/change-data", ProfileData);
-  Router.use("/profile/change-password", ProfilePassword);
-  Router.use("/chat", Chat);
+  Router.use("/settings", Profile);
+  Router.use("/settings/change-data", ProfileData);
+  Router.use("/settings/change-password", ProfilePassword);
+  Router.use("/messenger", Chat);
   Router.use("/error404", Error404);
   Router.use("/error500", Error500);
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await getUserInfo();
     Router.start();
 
-    if (!isViewablePages) Router.go("/chat");
+    if (!isViewablePages) Router.go("/messenger");
   } catch (e) {
     Router.start();
 

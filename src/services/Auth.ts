@@ -9,7 +9,7 @@ const signIn = async (data: SignInData) => {
     await AuthHTTP.postSignIn(data);
     getUserInfo().then();
 
-    Router.go("/chat");
+    Router.go("/messenger");
   } catch (e: any) {
     console.error("sign in", e);
   }
@@ -26,7 +26,7 @@ const signUp = async (data: SignUpData) => {
     await AuthHTTP.postSignUp(data);
     getUserInfo().then();
 
-    Router.go("/profile");
+    Router.go("/messenger");
   } catch (e: any) {
     console.error("sign up", e.message);
   }

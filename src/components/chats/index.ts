@@ -75,7 +75,7 @@ class ChatsBase extends Block {
           <h2 class="${s.title}">Чаты</h2>
           {{{ buttonNewChat }}}
         </div>         
-        <div>
+        <div class="${s.cards}">
           {{#if isLoaded}}
             <ul>
               {{#each chatList}}

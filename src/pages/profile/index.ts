@@ -17,11 +17,11 @@ export class ProfileBase extends Block {
     this.children.avatar = new Avatar({isChangingImg: false});
     this.children.linkChangePass = new Link({
       label: "Изменить пароль",
-      href: "/profile/change-password",
+      href: "/settings/change-password",
     });
     this.children.linkChangeData = new Link({
       label: "Изменить данные",
-      href: "/profile/change-data",
+      href: "/settings/change-data",
     });
   }
 

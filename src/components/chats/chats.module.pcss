@@ -1,4 +1,7 @@
 .chats {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 100%;
   max-width: 320px;
   height: 100%;
@@ -44,6 +47,17 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
+}
+
+.cards {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+
+  ul{
+    height: 100%;
+    overflow-y: auto;
+  }
 }
 
 .newChat {

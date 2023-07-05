@@ -1,3 +1,5 @@
+import {queryStringify} from "./queryStringify";
+
 enum METHOD {
   GET = "GET",
   POST = "POST",
@@ -68,7 +70,7 @@ export class HTTPTransport {
       const xhr = new XMLHttpRequest();
       const isGet = method === METHOD.GET;
 
-      xhr.open(method, url);
+      xhr.open(method, isGet && !!data ? `${url}${queryStringify(data)}` : url);
 
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {

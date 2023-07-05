@@ -12,11 +12,11 @@ export class NavBar extends Block {
   init() {
     this.children.linkChats = new Link({
       label: iconChats,
-      href: "/chat",
+      href: "/messenger",
     });
     this.children.linkProfile = new Link({
       label: iconProfile,
-      href: "/profile",
+      href: "/settings",
     });
     this.children.linkLogout = new Link({
       label: iconLogout,

@@ -8,7 +8,7 @@ const changeUserProfile = async (data: UserProfile) => {
     const user = await UserHTTP.putUserProfile(data) as User;
 
     StoreApp.dispatch({user: user});
-    Router.go("/profile");
+    Router.go("/settings");
 
   } catch (e: any) {
     console.error("change user profile", e);
@@ -28,7 +28,7 @@ const changeUserAvatar = async (data: FormData) => {
 const changeUserPassword = async (data: Password) => {
   try {
     await UserHTTP.putUserPassword(data);
-    Router.go("/profile");
+    Router.go("/settings");
 
   } catch (e: any) {
     console.error("change user password", e);

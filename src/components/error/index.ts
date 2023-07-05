@@ -16,7 +16,7 @@ export class Error extends Block {
   protected init() {
     this.children.link = new Link({
       label: "Назад к чатам",
-      href: "/chat",
+      href: "/messenger",
     });
   }
 

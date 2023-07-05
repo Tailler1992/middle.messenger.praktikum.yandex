@@ -35,25 +35,29 @@ const newConnect = async (chatId: number, token: string) => {
   });
 
   socket.addEventListener("message", (event) => {
-    const data = JSON.parse(event.data);
+    try {
+      const data = JSON.parse(event.data);
 
-    if (data.type && data.type === "pong") {
-      return;
+      if (data.type && data.type === "pong") {
+        return;
+      }
+
+      let messagesToAdd: Message[] = [];
+
+      if (Array.isArray(data)) {
+        messagesToAdd = data.reverse();
+      } else {
+        messagesToAdd.push(data);
+      }
+
+      const messageList = StoreApp.getState().messageList;
+
+      // @ts-ignore
+      messageList[chatId] = [...messageList[chatId] || [], ...messagesToAdd];
+      StoreApp.dispatch({messageList});
+    } catch (e: any) {
+      console.error("message parse", e);
     }
-
-    let messagesToAdd: Message[] = [];
-
-    if (Array.isArray(data)) {
-      messagesToAdd = data.reverse();
-    } else {
-      messagesToAdd.push(data);
-    }
-
-    const messageList = StoreApp.getState().messageList;
-
-    // @ts-ignore
-    messageList[chatId] = [...messageList[chatId] || [], ...messagesToAdd];
-    StoreApp.dispatch({messageList});
   });
 
   const ping = setInterval(() => {
@@ -77,4 +81,4 @@ const closeSockets = () => {
   sockets.clear();
 };
 
-export {newConnect, sendMessage, closeSockets };
+export {newConnect, sendMessage, closeSockets};

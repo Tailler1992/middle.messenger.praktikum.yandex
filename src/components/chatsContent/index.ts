@@ -57,7 +57,7 @@ export class ChatsContentBase extends Block {
           ...data,
           isMyPost: newProps.user.id === data.user_id,
         });
-      });
+      }).reverse();
 
       const usersInChat = chatUsers.map((user: ChatUsers) => user.login).join(", ");
       const usersList = chatUsers.filter((el: ChatUsers) => el.login !== user.login);
