@@ -21,19 +21,19 @@
 .variant {
   width: 100%;
   max-width: 200px;
-  padding: 5px 0;
+  padding: 5px 5px 6px;
   font-weight: 400;
   color: var(--text-color-secondary);
   text-align: end;
   cursor: text;
   background: #FFF;
-  border: none;
+
 
   &::placeholder {
     color: var(--text-field-color-placeholder-hover);
   }
 }
 
-.error {
+.error, .errorPassMatch, .errorPassRepeat {
   border: 1px solid #FF2F2F;
 }

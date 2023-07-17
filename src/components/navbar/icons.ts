@@ -11,7 +11,7 @@ const icon = `
       />
   </svg>`;
 
-const icon2 = `
+const iconChats = `
   <svg width="24" height="24" viewBox="0 0 24 24" fill="#839EA0" xmlns="http://www.w3.org/2000/svg">
       <path d="M24 12C24 15.0433 24 21.5 24 24C21 24 15.5841 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258
   5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z"
@@ -41,7 +41,7 @@ const icon4 = `
       />
   </svg>`;
 
-const icon5 = `
+const iconProfile = `
   <svg width="24" height="24" viewBox="0 0 24 24" fill="#839EA0" xmlns="http://www.w3.org/2000/svg">
       <path d="M12.8734 12.7283C15.0507 11.8098 17 9.16992 17 6C17 2.41016 14.7614 0 12 0C9.23859 0 7 2.41016
   7 6C7 9.22314 8.61224 11.8984 11.113 12.7732C11.6849 12.9731 12.3151 12.9639 12.8734 12.7283Z"
@@ -90,10 +90,10 @@ const icon6 = `
       />
   </svg>`;
 
-const icon7 = `
+const iconLogout = `
   <svg width="22" height="18" viewBox="0 0 22 18" fill="#839EA0" xmlns="http://www.w3.org/2000/svg">
       <path d="M14 7V0.5C14 0.5 18.6805 5.68054 22 9L14 17.5V11H7V7H11.5H14Z"/>
       <path d="M4 4H11V0H2C0.895431 0 0 0.89543 0 2V16C0 17.1046 0.895431 18 2 18H11V14H4V4Z"/>
   </svg>`;
 
-export {icon, icon2, icon3, icon4, icon5, icon6, icon7};
+export {icon, iconChats, icon3, icon4, iconProfile, icon6, iconLogout};
