@@ -13,7 +13,7 @@ The application allows users to register an account, log in, and send messages t
 2. Install the dependencies: npm install
 
 ### Usage
-1. Start the server: `npm run serve`
+1. Start the server: `npm run start`
 2. Open a web browser and navigate to http://localhost:3000
 
 ### Dependencies

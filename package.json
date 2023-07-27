@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
-    "serve": "webpack serve --mode development",
+    "start": "webpack serve --mode development",
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
     "eslint": "eslint src/**/*.ts",
     "stylelint": "stylelint \"**/*.pcss\" --fix",
