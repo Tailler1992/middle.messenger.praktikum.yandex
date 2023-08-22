@@ -2,6 +2,7 @@ import {SignIn, SignUp, Profile, ProfileData, ProfilePassword, Chat, Error404, E
 import {Router} from "./core/routing/Router";
 import {StoreApp} from "./core/Store";
 import {getUserInfo} from "./services/Auth";
+import "./styles/globals.pcss"
 
 document.addEventListener("DOMContentLoaded", async () => {
   Router.use("/", SignIn);
